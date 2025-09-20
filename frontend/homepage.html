@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Connect Platform</title>
+  <link rel="stylesheet" href="./homepagestyle.css">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Alumni Connect</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#alumni">Alumni</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <h2>Welcome to Alumni Connect</h2>
+    <p>A centralized digital platform for alumni data management, networking, and engagement.</p>
+  </section>
+
+  <!-- Alumni Directory -->
+  <section class="section" id="alumni">
+    <h2>Alumni Directory</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search alumni by name...">
+    </div>
+    <div class="alumni-cards" id="alumniCards">
+      <div class="card">
+        <img src="https://via.placeholder.com/80" alt="alumni">
+        <h3>John Doe</h3>
+        <p>Software Engineer, Google</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/80" alt="alumni">
+        <h3>Priya Sharma</h3>
+        <p>Data Scientist, Microsoft</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/80" alt="alumni">
+        <h3>Arjun Mehta</h3>
+        <p>Entrepreneur, StartupX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section class="section" id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-list">
+      <div class="event">
+        <h3>Alumni Meet 2025</h3>
+        <p>Date: Dec 15, 2025</p>
+        <p>Location: Campus Auditorium</p>
+      </div>
+      <div class="event">
+        <h3>Webinar on AI</h3>
+        <p>Date: Nov 10, 2025</p>
+        <p>Speaker: Alumni Experts</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Connect | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Search functionality for alumni
+    const searchInput = document.getElementById("searchInput");
+    const alumniCards = document.getElementById("alumniCards").children;
+
+    searchInput.addEventListener("keyup", function() {
+      let filter = searchInput.value.toLowerCase();
+      Array.from(alumniCards).forEach(card => {
+        let name = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = name.includes(filter) ? "block" : "none";
+      });
+    });
+
+    // Contact form submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you! Your message has been sent.");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
